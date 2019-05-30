@@ -168,6 +168,8 @@ sets: `s = set([1, 2, 3])`
 
 dictionary: `d = {'a': 1, 'b': 2, 'c': 3}`
 
+[https://docs.python.org/3.7/library/stdtypes.html]
+
 <!-- 4. Understand the similarities and differences in the basic python collection types -->
 <!-- 5. Learn 10 more Python terms. -->
 
