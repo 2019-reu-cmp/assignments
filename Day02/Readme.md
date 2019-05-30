@@ -33,7 +33,8 @@ May 30, 2019
 
 ## modifiers
 
-make changes to a variable `x = x + 1`
+make changes to a variable
+equivalent to  `x = x + 1`
 ```
 x += 1
 x -= 1
