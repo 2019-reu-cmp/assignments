@@ -22,9 +22,30 @@ May 30, 2019
 - Go to Github classroom link, from website
 - GitKraken
 - Log in and clone your new repo
+- clone the assignments repo
+- copy files to your repo's directory
+- `commit` your changes with a message
+- `push` the changes to the server
 
 <!-- 1. Get files via `git`. -->
 
+---
+
+## modifiers
+
+make changes to a variable `x = x + 1`
+```
+x += 1
+x -= 1
+x *= 2
+x /= 2
+x //= 2
+```
+...
+```
+x %= 2
+x **= 2
+```
 ---
 
 ## Review 
