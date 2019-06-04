@@ -7,7 +7,7 @@ June 04, 2019
 
 ## Class Details
 
-* Office Hours: Tuesdays at 3pm, NSH 101
+* Office Hours: Tuesdays at 3pm, ~~NSH 101~~ Nieuwland Science Hall 284 K
 * Today's material is at 
     - `https://github.com/2019-reu-cmp/assignments`
 
@@ -54,7 +54,7 @@ def CheckNumber(n):
         * `s.difference(s2)` or `s-s2` ("in s but not in s2")
     * How to access a dictionary by key. 
     
-        * `d = {'a', 1}` -> acess it with: `d['a']` (i.e. value associated with key 'a')
+        * `d = {'a', 1}` -> access it with: `d['a']` (i.e. value associated with key 'a')
 
 * How would you check if a variable is of a certain type?
     - e.g. int, float, string, list, tuple, dict
@@ -95,6 +95,8 @@ for item in container:
 
 ---
 
+
+
 ## Estimating pi
 
 Srinivasa Ramanujan discovered an infinite series for pi:
@@ -130,19 +132,23 @@ f.close()
 
 ```python
 with open(filename, 'r') as f:
-    f.read()
+    wholefile = f.read()
+    #or, you can initialize a list to store your data
+    data = []
+    for line in f:
+        data.append(line)
 ```
  
  ---
 There is also a very useful `.readline()` method that reads one line at a time instead of the whole file at once.
 
-`.readlines()` will break the file into an list of strings split at the '\n' characters.
+`.readlines()` will break the file into an list of strings split at the `\n` characters.
 
 ---
 
 ## String detour
-
-* `s.strip()` remove any trailing whitespace and '\n' or '\r' characters from a string
+* `print( repr( object ) )` will show you hidden characters (good for diagnosing problems)
+* `s.strip()` remove any trailing whitespace and `\n` or `\r` characters from a string
 * `s.split()` split string into a list (typically space or comma delimited)
 * `int(s)` convert a string to an int
 * `float(s)` convert a string to a float
@@ -155,7 +161,8 @@ There is also a very useful `.readline()` method that reads one line at a time i
 - Practice with the handout
 - Import `northwind.txt` then separate by word
     + Try to count how many times each word appears
-- Calculate the average sunspot form `sunspots.txt` 
+- Calculate the average number of sunspots per day form `sunspots.txt` 
     + Can you count the days who's number of sunspots fell with an arbitrary range?
+    + i.e. Implement a `count(low, high)` function that returns the number of days with sunspots above low and below high.
 
 *Readings* - nothing new, just catch up if you need to.
