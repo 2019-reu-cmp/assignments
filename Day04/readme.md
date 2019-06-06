@@ -179,8 +179,9 @@ xs = [x for x in range(10)]
 ```python
 ix_pairs = [(i,x) for i,x in enumerate(xs)]
 ```
-```
-## zip
+---
+
+### zip
 
 `zip` "walks" through two lists at the same time
 ``` python

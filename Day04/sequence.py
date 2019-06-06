@@ -13,7 +13,7 @@ for i in range(1000000):    #that is 1,000,000 times!
     l.append(i)
 end = dt.now()
 
-print((end - start).total_seconds())
+print('for loop time', (end - start).total_seconds())
 
 
 # time making a list from a sequence
@@ -21,4 +21,4 @@ start = dt.now()
 l = [i for i in range(1000000)]
 end = dt.now()
 
-print((end - start).total_seconds())
+print('list comprehension time', (end - start).total_seconds())
