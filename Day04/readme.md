@@ -1,6 +1,6 @@
 # Special Topics in Standard Python
 
-June 8, 2018
+June 6, 2019
 
 Chris Seymour
 `seymour.16@nd.edu`
@@ -148,11 +148,12 @@ Create a string from a list: `''.join(l)`
 
 ---
 
-## List comprehension
+## List Comprehension
 
 `.append()` is slow, so use this trick: 
 
 - `l = [i**2 for i in range(10)]`
+
 - This is extremely useful for a lot of different situations, like file
     processing:
 
@@ -166,10 +167,31 @@ with open(filename, 'r') as f:
 ## Special for-looping functions
 
 We already know about `range`
+```python
+xs = [x for x in range(10)]
+```
 
 `enumerate` gets the index and value
+```python
+ix_pairs = [(i,x) for i,x in enumerate(xs)]
+```
+```
+## zip
 
 `zip` "walks" through two lists at the same time
+``` python
+A = (0, 1, 2, 3)
+B = (5, 10, 15, 20)
+for a,b in zip(A,B):
+    print(a, b, a+b) 
+
+ab_dict = dict( zip(A, B) ) #dict with A as the key and B as the values (no longer ordered)
+
+ab_pairs = [(a,b) for a,b in zip(A, B)] #ab_pairs is a list of four length 2 tuples
+
+A2. B2 = zip(*ab_pairs) #go back to two, length 4 lists
+
+```
 
 <!-- 
 3. range, enumerate, zip
