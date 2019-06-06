@@ -30,8 +30,10 @@ Chris Seymour
 
 * `northwind.txt`
     * Able to count the occurrence of each word?
+    * see `Day03/countwords.py` 
 * `sunspots.txt`
     * What was hard?
+
 
 ---
 
@@ -46,6 +48,7 @@ pi_2 = mp.fdiv(pi, 2)
 
 mp.fsub(2, 2E-5) #bad
 mp.fsub(2, '2E-5') #good 
+
 ```
     * Decimal
 ```python
@@ -56,6 +59,7 @@ pi = de.Decimal('3.14159...') #must define pi
 
 see `Day03/arbitrary_prescision.py` for example
 
+[http://mpmath.org/doc/current/]
 ---
 
 ## File I/O
@@ -234,7 +238,8 @@ Show in REPL
 ## Errors and Exception Handling
 
 We place operations within `try`-blocks to safeguard ourselves from unwanted
-operations (bad division, importing the wrong thing, requiring user input, etc.)
+operations 
+ - (bad division, importing the wrong thing, requiring user input, etc.)
 
 ```python
 try:
@@ -247,6 +252,8 @@ except Exception as e:
 * `Exception`  the most generic 
     - Will often use `TypeError` or `ZeroDivisionError` or `ValueError`
 * `e` now contains the Exception message, but not the Exception name.
+
+see `/Day04/try-except.py` for examples
 
 [https://docs.python.org/3/tutorial/errors.html]
 <!-- 
@@ -284,9 +291,11 @@ useful for detecting errors early, instead of later as a side effect
 - Practice with the handout
 
 - Import `nothwind.txt` then separate by word
-    + Try to count how many times each word and letter appears.
+    + Try to count how many times each word appears 
+    + Count how many times each letter appears.
 - Calculate the average sunspot form `sunspots.txt` 
     + Can you count the days who's number of sunspots fell with an arbitrary range?
+    + i.e. Implement a `count(low, high)` function that returns the number of days with sunspots above low and below high.
 
 Read Ch 3 of Mark Newman's _Computational Physics_
 
