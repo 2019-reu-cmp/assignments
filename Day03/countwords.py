@@ -2,7 +2,10 @@
 """
 Created on Wed Jun  5 23:01:24 2019
 
-@author: Chris
+Count the number of words in northwind.txt using different methods
+For 
+
+@author: Chris Seymour
 """
 
 import collections as coll
@@ -35,7 +38,7 @@ for word in swords:
     count_dict[word] += 1 #increase the count by 1
 
 for key in count_dict.keys():
-#        print(d[key]) #the number of counts is associated with the word itself!
+#   print(d[key]) #the number of counts is associated with the word itself!
     print('The word "{}" appeared {} times'.format(key, count_dict[key]) )
   
 print("\n--== with a collections.Counter() ==--\n")      

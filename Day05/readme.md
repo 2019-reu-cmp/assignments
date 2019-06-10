@@ -4,40 +4,17 @@ Chris Seymour
 
 `seymour.16@nd.edu`
 
-June 6, 2018
+June 10, 2018
 
 ---
 
 # Goals
 
-1. Learn about `np.array`s and what makes them more useful mathematical vectors/matrices
-2. Be able to read data in from disk via `numpy`
-2. Be able to make a line or scatter plot
-3. Be able to make a histogram
-
----
-
-# Review Homework
-
-- Import `nothwind.txt` then separate by word
-    + Try to count how many times each word appears
-- Calculate the average sunspot form `sunspots.txt` 
-    + Can you count the days who's number of sunspots fell with an arbitrary range?
-
----
-
-# Day 04 Handout
-
-5. Update dot product to use `zip` or `enumerate`
-
----
-
-# Convention
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-```
+1. Learn about `numpys`'s `ndarray` class (i.e.) `np.array`s)
+  - mathematical vectors/matrices [numpy](https://www.numpy.org/)
+2. Be able to use  `numpy` to store and manipulate data
+3. Be able to make a line or scatter plot
+4. Be able to make a histogram
 
 ---
 
@@ -45,100 +22,121 @@ import matplotlib.pyplot as plt
 
 ---
 
-## Create an array
+## `import` Convention
+
+```python
+import numpy as np
+```
+
+---
+
+## Initialize an array
 
 All of these create the same array:
 
 ```python
-a = np.array([0, 1, 2])
+a = np.array( [0, 1, 2] )
 b = np.arange(3)
 c = np.linspace(0, 2, 3)
 ```
-
-<!-- 
-- Basic array is created with `numpy.array([0, 1, 2])` unless created directly
-  with a special function
-
-- Arrays work differently than lists when talking about math and slices
-  - transposition `a.T`, dot products `a.dot(b)`, statistics `a.mean()`
-  - fancy slices for matrix-like objects `a[:, 1]`
-
-- Basic math operations are also included, but act on each element separately
-
-- If you need random points, you should use `numpy.random.rand(r, c)` or
-  `numpy.random.rand(n)` (if you just want a one-dimensional array)
-   -->
-
-
 ---
 
-## Random points
+## Creating Empty Arrays
+
+`np.zeros()` or `np.empty()` to create empty lists
 
 ```python
-from random import random
-points = [[random(), random()] 
-           for _ in range(100)]
+d = np.zeros( shape=(4) ) # 1-D vector of four zeros
+d_int = np.zeros( shape=(4), dtype=int ) # can specify the data type
+e = np.empty( (40)  )
 ```
+ -`np.empty()` is likely to have crazy values initially, so be careful
 
+for a 2-D matrix
 ```python
-points = np.random.rand(100, 2)
+np.zeros( shape=(2,4) ) # create a 2 row, 4 column matrix of zeros
 ```
+  - the `shape` argument gives the dimensions of the array `shape=(rows,columns)`
+  - rows and colums must be integers
+  - `shape` will always be a tuple, so it's good practice to use parenthesis (even on 1-D arrays)
 
-How would you separate these out into *x* and *y* arrays?
 
----
-
-### Aside
-
-What is `_` in `for _ in range(100)` mean?
-
-[https://dbader.org/blog/meaning-of-underscores-in-python](https://dbader.org/blog/meaning-of-underscores-in-python)
 
 ---
+
 
 ## Math with arrays
 
-Basic math: `a + b`, `np.sqrt(a)`
+```python
 
-Basic stats: `a.mean()`, `a.std()`
+```
+Examples:
+ a and b are `numpy.ndarrays` 
+ - add one to each element in the array: `a+1`
+ - add the arrays element by element: `a + b` (must be the same `shape`)
+ - apply a fucntion to each element of the array `np.sqrt(a)`
 
-- for multidimensional arrays, specify an axis if necessary: `a.mean(axis=0)`
+Basic stats:
+ - mean: `a.mean()` 
+   - for multidimensional arrays, specify an axis: `a.mean(axis=0)`
+ - standard deviation: `a.std()`
+ - sum along an axis `a.sum( axis=1 )`
 
-Linear Algebra: `a.dot(b)`, `np.cross(a, b)`
+Linear Algebra: 
+ - `a.dot(b)` dot product
+ - `np.cross(a, b)` cross product
 
 ---
 
 ## Manipulating arrays
 
 - Transpose with `a.T`
-- Slices similar to lists, `a[:,1]`
+- Slices similar to lists, `a[:,1]`  
+    - [slice notation](https://stackoverflow.com/questions/509211/understanding-slice-notation)
 
+checking and changing the number of rows and columns
+```python
+a.shape # returns the shape (not a function!)
+a.reshape( shape ) # change the shape, shape is a tuple in the form: (rows, columns)
+
+```
 ---
 
-## Read Data
+## Reading Numerical Data
 
-- We can use our regular python version, or use `np.loadtxt()`
+- We can use our regular python method of reading files, or use `np.loadtxt()`
+
 ```python
 a, b = np.loadtxt(filename, unpack=True)
 ```
 
 ---
 
-# Let's plot!
+# Plotting
+
+`import matplotlib.pyplot as plt`
 
 ---
 
-# Basics plotting
+## Basics plotting
+
+- At the most basic level, `plt.plot(x, y)` will create a connected line graph
+- You can pass additional options to plot to change the graph type
+- Everything can be controlled, so look at the documentation
+- To display, you need to run `plt.show()`, and program execution waits
 
 ```python
-plt.figure('MyFirstFigure')
+import matplotlib.pyplot as plt
 plt.plot(x, y)
 plt.show()
 ```
 
-Need help? [http://matplotlib.org/api/pyplot_api.html](http://matplotlib.org/api/pyplot_api.html)
+The `matplotlib.pyplot` documentation [http://matplotlib.org/api/pyplot_api.html] is vital.
 
-<!-- 
+---
+
+## Plotting Example
+
 - As an example, let's plot sin(x)/x over some range, just to see how numpy
   handles divide-by-zero:
   ```python
@@ -150,10 +148,10 @@ Need help? [http://matplotlib.org/api/pyplot_api.html](http://matplotlib.org/api
   plt.plot(x, y)
   plt.show()
   ```
-  - `nan` (not-a-number) values don't affect us at all! We're essentially free
-    from worry about them (but you should be careful anyway)
+  - `nan` (not-a-number) values don't affect us at all! We're essentially free 
+      from worry about them (but you should be careful anyway)
   - We know that `0` is in the array too: `x[4999] == 0` or `assert 0 in x`
- -->
+  - can check value stored at x=0 `print( y[4999] )`
  
 ---
 
@@ -168,38 +166,34 @@ plt.grid(True)
 ```
 You can use LaTeX!
 
+<!-- 
+- If you need random points, you should use `numpy.random.rand(r, c)` or
+  `numpy.random.rand(n)` (if you just want a one-dimensional array)
+   -->
+
 ---
 
 ## Histograms
-
+- Histograms are made differently, and take in an array that then generates the
+  resulting histogram: 
 ```python
-plt.hist(a)
+plt.hist(data, bins=5)
 ```
 
-Look up the options and this [example](http://matplotlib.org/1.2.1/examples/pylab_examples/histogram_demo.html).
+Check out this [example](http://matplotlib.org/1.2.1/examples/pylab_examples/histogram_demo.html).
 
 ---
 
-## Sunspots
+## Practice
 
 Total observed number of sunspots for each month starting in January, 1749 
 
 - Read in `sunspots.tsv`, and plot it
-- Change the plot to *not* be a connected line graph
-- On the same plot, include a moving average (window = 5)
+- Change the plot to *not* be a connected line graph (i.e. a scatter plot)
+- On the same plot, include a moving average (window = 5 months)
 
+Practice with handout05
 
----
-
-# Git review
-
+Read Newman Ch 5 for next time
 
 ---
-
-# Practice
-
-- Handout
-- Read in `sunspots.tsv` and make a histogram of the counts/month
-- Read in `sunspots.tsv`, and make a scatter plot of the data
-- Add a moving average to you
-- Read Newman Ch 5
