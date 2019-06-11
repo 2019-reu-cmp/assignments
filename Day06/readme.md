@@ -1,5 +1,6 @@
 # Practice Python with Numerical Methods
 
+
 Chris Seymour
 
 `seymour.16@nd.edu`
@@ -48,6 +49,8 @@ Want to know area under curve, but don't know functional form of `f(x)`.
 trap = dx * (f(x + dx) + f(x)) / 2
 ```
 
+[http://mathworld.wolfram.com/TrapezoidalRule.html]
+
 ---
 
 ## Simpson's 3/8 rule
@@ -75,6 +78,8 @@ integral = 3*h/8 * (
 ```
 This only works if `n` is a multiple of 3
 
+[http://mathworld.wolfram.com/Simpsons38Rule.html]
+
 ---
 
 # Root Finding
@@ -94,13 +99,17 @@ We already looked at a Bisection Method example,
 x1 = x0 - f(x0)/f'(x0)
 ```
 
-- Secant method (if we don't)
+- Secant method (if we don't know first derivative)
 	- Only need the function (not the derivative).
 	- Needs two starting points.
 	- Iterative process
 ```python
 x2 = x1 - f(x1) * (x1 - x0)/( f(x1) - f(x0) )
 ```
+
+[http://mathworld.wolfram.com/NewtonsMethod.html]
+
+[http://mathworld.wolfram.com/SecantMethod.html]
 
 ---
 
@@ -123,6 +132,8 @@ y(t + h) = y(t) + dy/dt*h + O[h^2]
 where `dy/dt` is some function `f(y,t)`
 
 i.e. `y(t + h) = y(t) + f(y,t)*h + O[h^2]`
+
+[http://mathworld.wolfram.com/EulerForwardMethod.html]
 
 ---
 ## Example: Free Fall
