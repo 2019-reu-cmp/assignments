@@ -10,8 +10,8 @@ June 10, 2019
 
 # Goals
 
-1. Learn about `numpys`'s `ndarray` class (i.e.) `np.array`s)
-  - mathematical vectors/matrices [numpy](https://www.numpy.org/)
+1. Learn about `numpys`'s `ndarray` class (i.e. `np.array`s)
+ 	 - mathematical vectors/matrices [numpy](https://www.numpy.org/)
 2. Be able to use  `numpy` to store and manipulate data
 3. Be able to make a line or scatter plot
 4. Be able to make a histogram
@@ -37,7 +37,7 @@ All of these create the same array:
 ```python
 a = np.array( [0, 1, 2] )
 b = np.arange(3)
-c = np.linspace(0, 2, 3)
+c = np.linspace(0, 2, 3)  #np.linspace(start, stop, n_steps)
 ```
 ---
 
