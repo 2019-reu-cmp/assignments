@@ -16,7 +16,7 @@ June 11, 2019
 
 # Review 
 
-Sunspots moving average example
+`sunspots.py` moving average example
 
 ---
 
@@ -63,14 +63,14 @@ integral = (3 * h / 8) * factor
 
 ---
 
-## Simpson's 3/8 rule (for n intervals)
+## Extended Simpson's 3/8 rule (for n intervals)
 
 ```python
 h = (b - a) / n
 xi = a + i*h
 integral = 3*h/8 * (
-                f(x0) + 3f(x1) + 
-               3f(x2) + 2f(x3) + 3f(x4) +
+                f(x0) + 3*f(x1) + 
+               3*f(x2) + 2*f(x3) + 3*f(x4) +
                 ... + f(xn) )
 ```
 This only works if `n` is a multiple of 3
@@ -79,27 +79,71 @@ This only works if `n` is a multiple of 3
 
 # Root Finding
 
-We already looked at a Bisection Method example, `assignments/Day02/bisection.py`.
+We already looked at a Bisection Method example,
+	`assignments/Day02/bisection.py`.
 
 ---
 
 ## Alternatives to bisection
 
 - Newton's method (from a Taylor expansion)
-        - Need the function and it's first derivative)
-        - Depends on the starting point you choose.
-        - Iterative process
+	- Need the function and it's first derivative)
+	- Depends on the starting point you choose.
+	- Iterative process
 ```python
-x1 = x0 - f(x0)/f`(x0)
+x1 = x0 - f(x0)/f'(x0)
 ```
 
 - Secant method (if we don't)
-        - Only need the function (not the derivative).
-        - Needs two starting points.
-        - Iterative process
+	- Only need the function (not the derivative).
+	- Needs two starting points.
+	- Iterative process
 ```python
 x2 = x1 - f(x1) * (x1 - x0)/( f(x1) - f(x0) )
 ```
+
+---
+
+# Ordinary Differential Equations
+
+`dy/dx = f(y,t)`
+
+want to find solution for `y(t)`
+
+---
+
+## Euler's Method
+
+`h` is some time step *delta t*
+
+```python
+y(t + h) = y(t) + dy/dt*h + O[h^2] 
+```
+
+where `dy/dt` is some function `f(y,t)`
+
+i.e. `y(t + h) = y(t) + f(y,t)*h + O[h^2]`
+
+---
+## Example: Free Fall
+
+`dy/dt = f(y,t) = v(t) = v0 - g*t`
+
+```python
+g = 9.81 #gravitational constant
+
+h = 0.01 #step size
+y,t = 0,0 #initial values
+
+while t<1:
+	#loop over values
+	v = v0 - g*t
+	y += v + t
+	t += h
+```
+
+	- Values can be stored in arrays during loop to track progress
+	- can be extended to coupled ODEs
 
 ---
 
