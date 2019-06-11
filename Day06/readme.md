@@ -4,13 +4,11 @@ Chris Seymour
 
 `seymour.16@nd.edu`
 
-June 11, 2018
+June 11, 2019
 
 ---
 
 # Goals
-
-Practice !
 
 * Be able to write four numerical methods that can *do something*
 
@@ -35,6 +33,8 @@ Explore these on your own too, since we won't be able to cover everything...
 
 
 # Integration
+
+Want to know area under curve, but don't know functional form of `f(x)`.
 
 ---
 
@@ -79,23 +79,26 @@ This only works if `n` is a multiple of 3
 
 # Root Finding
 
-We already looked at bisection
+We already looked at a Bisection Method example, `assignments/Day02/bisection.py`.
 
 ---
 
 ## Alternatives to bisection
 
-- Newton's method (if we know the functional form of the derivative)
-
+- Newton's method (from a Taylor expansion)
+        - Need the function and it's first derivative)
+        - Depends on the starting point you choose.
+        - Iterative process
 ```python
-x1 = x0 - f(x0)/df(x0)
+x1 = x0 - f(x0)/f`(x0)
 ```
 
 - Secant method (if we don't)
-
+        - Only need the function (not the derivative).
+        - Needs two starting points.
+        - Iterative process
 ```python
-x2 = x1 - f(x1) *
-     (x1 - x0)/(f(x1) - f(x0))
+x2 = x1 - f(x1) * (x1 - x0)/( f(x1) - f(x0) )
 ```
 
 ---
