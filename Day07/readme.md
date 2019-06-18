@@ -24,7 +24,7 @@ June 18, 2019
 
 ---
 ## helpful `matplotlib` features
-subplots
+subplots `plt.subplots()`
 ```python
 f, ax = plt.subplots() # create a single subplot
 
@@ -37,14 +37,14 @@ axs[0, 1].plot( xs, ys ) #access the plots in axs like a 2-D list
 
 axs.shape  # can check the shape to make sure...
 ```
-plot a second y-axis on the right side of the plot
+plot a second y-axis on the right side of the plot with `.twinx()`
 ```pyhton
 f, ax = plt.subplots() #create a figure "f", and a subplot "ax"
 ax.plot( xs, ys )
 ax2 = ax.twinx() #create a second y-axis with the same x-units
 ax2.plot( xs, ys2 )
 ```
-Matplotlib [Favorite Recipies](https://matplotlib.org/1.3.1/users/recipes.html)
+Matplotlib useful "[Favorite Recipies](https://matplotlib.org/1.3.1/users/recipes.html)"
 
 ---
 ## line formatting
@@ -60,7 +60,7 @@ legend
 ```python
 plt.plot( xs, ys0, label='line 0' )
 plt.plot( xs, ys1, label='line {}'.format(1) )
-plt.plot( xs, ys2, label='line {}'.format( $\Beta$) )
+plt.plot( xs, ys2, label='line {}'.format( $\\beta$ ) )
 plt.plot( xs, ys3, label='line {}'.format(1+2) )
 plt.legend()
 ```
@@ -125,19 +125,6 @@ integrate.quad_explain() #call this to see how quad works...
 newton(f, x0, fprime=None) #defaults to secant
 ```
 
----
-
-## What we did previously...
-
-
-Integration:
-
-- `scipy.integrate` has the methods we need
-- Also works for ODE solving
-
-Root finding:
-
-- `scipy.optimize` has this (and a whole lot more!)
 
 ---
 
